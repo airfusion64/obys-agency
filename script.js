@@ -67,3 +67,4 @@ function curserAnimation() {
 }
 
 loaderAnimations();
+curserAnimation();
