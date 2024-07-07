@@ -1,19 +1,17 @@
-setInterval(function(){
-    if(grow < 100){
-        grow++;
-        h5Timer.innerHTML = grow;
-    }
-    else {
-        clearInterval(grow);
-    }
-},50)
-
+function loaderAnimations() {
 var tl = gsap.timeline();
 tl.from("#line h1", {
     y:150,
     stagger:0.25,
     duration:0.6,
     delay:0.5
+})
+
+tl.from("#para p", {
+    y:200,
+    stagger:0.25,
+    duration:0.6,
+    delay:0
 })
 
 tl.from("#line1-part1", {
@@ -40,7 +38,8 @@ tl.to("#line h2",{
 tl.to('#loader', {
     opacity:0,
     duration:0.4,
-    delay:4
+    delay:4,
+    display:"none"
 })
 
 tl.from("#page1", {
@@ -50,7 +49,14 @@ tl.from("#page1", {
     duration:0.5,
     ease:Power4
 })
+}
 
-tl.to("#loader", {
-    display:"none"
+document.addEventListener("mousemove", function(dets){
+    gsap.to("#curser",{
+        top:dets.y,
+        left:dets.x
+    })
 })
+
+
+loaderAnimations();
