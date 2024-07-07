@@ -51,12 +51,19 @@ tl.from("#page1", {
 })
 }
 
-document.addEventListener("mousemove", function(dets){
-    gsap.to("#curser",{
-        top:dets.y,
-        left:dets.x
+function curserAnimation() {
+    document.addEventListener("mousemove", function(dets){
+        gsap.to("#curser",{
+            top:dets.y,
+            left:dets.x
+        })
     })
-})
-
+    
+    Shery.makeMagnet("#nav-part2 h4", {
+        //Parameters are optional.
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        duration: 1,
+    });
+}
 
 loaderAnimations();
